@@ -1,0 +1,11 @@
+<div class="content-area">
+  <div class="order-list"><h3>Rendelések</h3><ul id="orders"><li draggable="true">Order 1</li></ul></div>
+  <div class="pairing-board" id="pairing-board"><h3>Párosítás</h3></div>
+  <div class="free-cars-list"><h3>Autók</h3><ul id="cars"><li draggable="true">Car 1</li></ul></div>
+</div>
+
+<script>
+  const pairingBoard=document.getElementById("pairing-board");
+  pairingBoard.addEventListener("dragover",e=>e.preventDefault());
+  pairingBoard.addEventListener("drop",e=>{e.preventDefault();const id=e.dataTransfer.getData("text/plain");});
+</script>

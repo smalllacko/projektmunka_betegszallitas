@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taxi App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Hamburger -->
+  <div id="menuIcon" class="menu-icon">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <a href="#" class="close-sidebar" id="closeSidebarBtn">&times;</a>
+    <a href="#" data-page="main">Főoldal</a>
+    <a href="#" data-page="profil">Profil</a>
+    <a href="#" data-page="rendeles">Fuvar rendelés</a>
+    <a href="#" data-page="admin">Adminisztrátor</a>
+    <a href="#">Kilépés</a>
+  </div>
+
+  <!-- Kereső -->
+  <div class="search-container">
+    <div class="search-bar">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="Keresés..." class="search-input" id="searchInput">
+    </div>
+    <div class="search-suggestions" id="searchSuggestions"></div>
+  </div>
+
+  <!-- Tartalom -->
+  <div id="content"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

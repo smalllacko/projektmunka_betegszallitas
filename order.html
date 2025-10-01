@@ -1,0 +1,42 @@
+<div class="taxi-order-container">
+  <h1>Taxi rendelés</h1>
+  <div id="map"></div>
+  <form id="taxiOrderForm">
+    <div class="form-group"><label>Felvételi cím</label><input id="pickupLocation" readonly></div>
+    <div class="form-group"><label>Leadási cím</label><input id="dropoffLocation" readonly></div>
+    <div class="form-group"><label>Taxi típus</label>
+      <select id="taxiType"><option>Standard</option><option>SUV</option><option>Luxury</option></select>
+    </div>
+    <button type="button" id="orderTaxiBtn">Fuvar rendelése</button>
+  </form>
+</div>
+
+<div id="confirmationPopup" class="popup"><div class="popup-content"><h2>Rendelés megerősítése</h2><p id="orderSummary"></p><button id="finishOrderBtn">Megerősítés</button></div></div>
+<div id="paymentPopup" class="popup"><div class="popup-content"><h2>Fizetés</h2><input placeholder='Kártyaszám'><button id="payNowBtn">Fizetés</button></div></div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+<script>
+  let map; let markers=[];
+  function initMap(){
+    map=new google.maps.Map(document.getElementById("map"),{center:{lat:47.5,lng:19.04},zoom:12});
+    map.addListener("click",e=>placeMarker(e.latLng));
+  }
+  function placeMarker(latLng){
+    if(markers.length<2){
+      markers.push(new google.maps.Marker({position:latLng,map:map}));
+      if(markers.length===1) document.getElementById("pickupLocation").value=latLng.toString();
+      else document.getElementById("dropoffLocation").value=latLng.toString();
+    }
+  }
+  document.addEventListener("DOMContentLoaded",()=>{
+    const orderTaxiBtn=document.getElementById("orderTaxiBtn");
+    const confirmationPopup=document.getElementById("confirmationPopup");
+    const orderSummary=document.getElementById("orderSummary");
+    const finishOrderBtn=document.getElementById("finishOrderBtn");
+    const paymentPopup=document.getElementById("paymentPopup");
+    const payNowBtn=document.getElementById("payNowBtn");
+    orderTaxiBtn.addEventListener("click",()=>{confirmationPopup.style.display="block";orderSummary.textContent="Ellenőrizd az adatokat";});
+    finishOrderBtn.addEventListener("click",()=>{confirmationPopup.style.display="none";paymentPopup.style.display="block";});
+    payNowBtn.addEventListener("click",()=>{alert("Fizetés sikeres!");paymentPopup.style.display="none";});
+  });
+</script>

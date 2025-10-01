@@ -1,0 +1,21 @@
+<div class="profile-container">
+  <h1>Profil Információk frissítése</h1>
+  <form id="profileForm">
+    <div class="form-group"><label for="oldUsername">Régi felhasználónév</label><input type="text" id="oldUsername"></div>
+    <div class="form-group"><label for="newUsername">Új felhasználónév</label><input type="text" id="newUsername"></div>
+    <div class="form-group"><label for="oldPassword">Régi jelszó</label><input type="password" id="oldPassword"></div>
+    <div class="form-group"><label for="newPassword">Új jelszó</label><input type="password" id="newPassword"></div>
+    <div class="form-group"><label for="phoneNumber">Telefonszám</label><input type="tel" id="phoneNumber"></div>
+    <div class="form-group"><label for="address">Lakcím</label><input type="text" id="address"></div>
+    <div class="form-group"><label for="creditCard">Bankkártya szám</label><input type="text" id="creditCard"></div>
+    <div class="form-group"><label for="insuranceNumber">Taj szám</label><input type="text" id="insuranceNumber"></div>
+    <button type="submit">Frissítés</button>
+  </form>
+</div>
+
+<script>
+  document.getElementById('profileForm').addEventListener('submit', e => {
+    e.preventDefault();
+    alert('Profil információ frissítve!');
+  });
+</script>
