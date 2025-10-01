@@ -1,1 +1,291 @@
-<FULL CSS FROM PREVIOUS ANSWER>
+/* ===== ALAP BEÁLLÍTÁSOK ===== */
+body {
+  font-family: Arial, sans-serif;
+  background-image: url('path/to/your/background-image.jpg'); /* állítsd be a háttérképedet */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+/* ===== HAMBURGER MENÜ ===== */
+.menu-icon {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 24px;
+  z-index: 20;
+}
+.bar {
+  width: 30px;
+  height: 3px;
+  background-color: #333;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 15;
+  top: 0;
+  left: 0;
+  background-color: #dfcecebe;
+  overflow-x: hidden;
+  transition: width 0.5s;
+  padding-top: 60px;
+}
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #000000;
+  display: block;
+  transition: 0.3s;
+}
+.sidebar a:hover { color: #f1f1f1; }
+.close-sidebar {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* ===== KERESŐ ===== */
+.search-container {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 20px;
+  padding: 8px 15px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  transition: width 0.4s ease-in-out;
+}
+.search-bar:focus-within { width: 400px; }
+.search-icon { margin-right: 10px; font-size: 18px; }
+.search-input {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  width: 0;
+  transition: width 0.4s ease-in-out;
+}
+.search-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 5%;
+  right: 5%;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 0 0 8px 8px;
+  z-index: 1;
+  max-height: 150px;
+  overflow-y: auto;
+  display: none;
+}
+.search-suggestions div {
+  padding: 10px;
+  cursor: pointer;
+}
+.search-suggestions div:hover { background-color: #f0f0f0; }
+
+/* ===== PROFIL GOMB ===== */
+.circle-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #ff0000;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.circle-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* ===== MODAL (login, regisztráció, fizetés) ===== */
+.modal, .popup {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.modal-content, .popup-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 400px;
+  position: relative;
+  text-align: center;
+}
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close:hover, .close:focus { color: black; }
+
+/* ===== FORMOK ===== */
+form h2 { margin-bottom: 20px; text-align: center; }
+.form-group { margin-bottom: 15px; text-align: left; }
+.form-group label { display: block; margin-bottom: 5px; }
+.form-group input, .form-group select {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+button[type="submit"], button[type="button"], #payNowBtn {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff0000;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+button[type="submit"]:hover, button[type="button"]:hover, #payNowBtn:hover {
+  background-color: #ff0000;
+  color: #fff;
+  box-shadow: 0 0 5px #000;
+}
+.error-message {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+  display: none;
+}
+
+/* ===== HÍREK ===== */
+.news-feed {
+  width: calc(100% - 50px);
+  max-width: 600px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-sizing: border-box;
+  margin-top: 350px;
+}
+.news-feed h2 { text-align: center; margin-bottom: 15px; }
+.news-item {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.258);
+  border-radius: 4px;
+  position: relative;
+}
+.close-news {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+  color: #aaa;
+  font-size: 18px;
+}
+.close-news:hover { color: #333; }
+
+/* ===== PROFIL OLDAL ===== */
+.profile-container {
+  max-width: 500px;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.profile-container h1 { text-align: center; margin-bottom: 20px; }
+
+/* ===== TAXI RENDELÉS OLDAL ===== */
+.taxi-order-container {
+  max-width: 500px;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.taxi-order-container h1 { margin-bottom: 20px; }
+#map { width: 100%; height: 300px; margin-bottom: 15px; }
+
+/* ===== ADMIN (RENDELÉS-PÁROSÍTÁS) ===== */
+.content-area {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 150px;
+  width: 80%;
+  max-width: 1200px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+.order-list, .free-cars-list, .pairing-board {
+  width: 30%;
+  background-color: #e0e0e0;
+  padding: 10px;
+  min-height: 300px;
+  border-radius: 8px;
+}
+.order-list ul, .free-cars-list ul { list-style: none; padding: 0; }
+.order-list li, .free-cars-list li {
+  margin: 5px 0;
+  padding: 5px;
+  background-color: #eee;
+  border-radius: 5px;
+  cursor: grab;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.close-btn { cursor: pointer; margin-left: 5px; color: red; }
+.pair-item {
+  padding: 5px 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  background-color: #cfd8dc;
+}
+MmM
